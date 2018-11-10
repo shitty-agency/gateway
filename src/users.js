@@ -1,7 +1,7 @@
-import uuid from 'uuid';
-import DynamoDB from 'aws-sdk/clients/dynamodb';
-import { DataMapper } from '@aws/dynamodb-data-mapper';
-import User from './models/user';
+const uuid = require('uuid');
+const DynamoDB = require('aws-sdk/clients/dynamodb');
+const { DataMapper } = require('@aws/dynamodb-data-mapper');
+const User = require('./models/user');
 
 const { hashPassword, createToken } = require('./auth');
 

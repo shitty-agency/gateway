@@ -1,9 +1,8 @@
-import {
+const {
   attribute,
   hashKey,
   table,
-} from '@aws/dynamodb-data-mapper-annotations';
-
+} = require('@aws/dynamodb-data-mapper-annotations');
 @table('users')
 class Users {
   @hashKey()
@@ -22,4 +21,4 @@ class Users {
   available: number;
 }
 
-export default Users;
+module.exports = Users;

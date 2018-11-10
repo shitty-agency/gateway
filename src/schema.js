@@ -5,24 +5,24 @@
 const { buildSchema } = require('graphql');
 
 // _token should
-const schema = buildSchema`
+const schema = buildSchema(`
   type User {
     id: ID!
     email: String!
     password: String!
-    available: Number!
+    available: Int!
     targetIDs: [String]!
     token: String
   }
 
   type Query {
-    getUser(id): User
+    getUser(id: ID!): User
   }
 
   type Mutation {
     createUser(email: String!, password: String!): User
     deleteUser(id: ID!): User
   }
-`;
+`);
 
-export default schema;
+module.exports = schema;
