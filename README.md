@@ -23,6 +23,7 @@
   </summary>
   <br />
 
+### INSTANTIATE THE USERS TABLE
 ```
 aws dynamodb create-table --table-name users \
   --attribute-definitions AttributeName=id,AttributeType=S \

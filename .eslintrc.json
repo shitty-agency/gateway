@@ -1,6 +1,7 @@
 {
-  "extends": "@brightsole/lint-front",
+  "extends": "@brightsole/lint-node",
   "rules": {
-    "func-names": "off"
+    "func-names": "off",
+    "no-console": "off"
   }
 }
