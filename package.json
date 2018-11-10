@@ -5,7 +5,8 @@
   "scripts": {
     "setup": "claudia create --name gateway --region us-west-2 --api-module src/index --policies policies",
     "deploy": "claudia update",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "test:users": "./test/users/index.sh"
   },
   "keywords": [
     "claudia",

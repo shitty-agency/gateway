@@ -10,4 +10,4 @@ exports.verifyPassword = (password, hash) => bcrypt.compare(password, hash);
 
 exports.createToken = id => jwt.sign({ id }, JWT_SECRET, { expiresIn: '28d' });
 
-exports.verifyToken = (token, opts = {}) => jwt.verify(token, JWT_SECRET, opts);
+exports.verifyToken = token => jwt.verify(token, JWT_SECRET);
