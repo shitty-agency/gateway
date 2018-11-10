@@ -40,14 +40,22 @@ aws dynamodb create-table --table-name users \
 <summary>tl;dr: <strong>Some</strong></summary>
 <br />
 
-  1. Instantiate the users database
-  2. Instantiate the targets database
-  3. Instantiate the image repository
-  4. Create the Evaluator
-  5. Test mocked context interactions
-  6. Test mocked database interactions
-  7. Email template research
-  8. Create a not-shit email template
+### Users:
+2. Fix getUser not functioning for `{email}` field querying (probably switch it to a query/filter)
+3. Investigate how to pass token through header context
+4. Put deleteUser behind `token-powered context wall™`
+5. Add update method behind `token-powered context wall™`
+
+### Targets:
+1. Instantiate target DB
+2. Create endpoint for creating a target behind the `token-powered context wall™`
+3. Reduce availability # by 1 when creating target
+4. Block target creation when user availability # is 0
+5. Assign targetId to user targetIDs on creation as well
+
+### Generic:
+1. Better tests, commenting and uncommenting in a real-world DB isn't testing
+2. Better docs
 
 </details>
 <br/>
