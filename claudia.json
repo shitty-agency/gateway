@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "gateway-executor",
+    "name": "gateway",
+    "region": "us-west-2"
+  },
+  "api": {
+    "id": "6mlamtstzb",
+    "module": "src/index"
+  }
+}
