@@ -1,4 +1,3 @@
-const uuid = require('uuid');
 const DynamoDB = require('aws-sdk/clients/dynamodb');
 const { DataMapper } = require('@aws/dynamodb-data-mapper');
 const User = require('./models/user');
@@ -11,27 +10,35 @@ const mapper = new DataMapper({
 
 const filterPassword = ({ password, ...rest }) => rest;
 
-const getUser = function(id) {
-  return filterPassword(mapper.get(new User({ id })));
+const getUser = async ({ id }) => {
+  const params = Object.assign(new User(), { id });
+  const user = await mapper.get(params);
+  console.log('uuuuu', user);
+
+  if (!user.id) throw new Error('user not found');
+
+  return filterPassword(user);
 };
 
 const createUser = async ({ email, password }) => {
-  const id = uuid.v4();
-  const hashedPassword = hashPassword(password);
+  const hashedPassword = await hashPassword(password);
 
-  const user = await mapper.put(new User({ id, password: hashedPassword }));
+  const params = Object.assign(new User(), { email, password: hashedPassword });
+  const user = await mapper.put(params);
 
   const token = createToken(email);
 
-  return { id, token, ...filterPassword(user) };
+  return { token, ...filterPassword(user) };
 };
 
-const deleteUser = async id => {
-  const user = await getUser(id);
+// TODO: only allow authed users to delete users
+const deleteUser = async idQuery => {
+  const user = await getUser(idQuery);
 
   if (!user) throw new Error('user not found');
 
-  return mapper.delete(new User({ id }));
+  const params = Object.assign(new User(), idQuery);
+  return mapper.delete(params);
 };
 
 module.exports = { createUser, getUser, deleteUser };

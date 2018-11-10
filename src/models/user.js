@@ -1,24 +1,29 @@
-const {
-  attribute,
-  hashKey,
-  table,
-} = require('@aws/dynamodb-data-mapper-annotations');
-@table('users')
-class Users {
-  @hashKey()
-  id: string;
+const { DynamoDbSchema, DynamoDbTable } = require('@aws/dynamodb-data-mapper');
+const { v4 } = require('uuid');
 
-  @attribute()
-  email: string;
+class User {}
 
-  @attribute()
-  password: string;
+Object.defineProperties(User.prototype, {
+  [DynamoDbTable]: {
+    value: 'users',
+  },
+  [DynamoDbSchema]: {
+    value: {
+      id: {
+        type: 'String',
+        keyType: 'HASH',
+        defaultProvider: v4,
+      },
+      email: { type: 'String', keyType: 'HASH' },
+      password: { type: 'String' },
+      targetIDs: {
+        type: 'Set',
+        memberType: 'String',
+        defaultProvider: () => [],
+      },
+      available: { type: 'Number', defaultProvider: () => 0 },
+    },
+  },
+});
 
-  @attribute({ memberType: { type: 'String' }, defaultProvider: () => [] })
-  targetIDs: Array<string>;
-
-  @attribute({ defaultProvider: () => 0 })
-  available: number;
-}
-
-module.exports = Users;
+module.exports = User;
