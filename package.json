@@ -1,6 +1,6 @@
 {
   "name": "gateway",
-  "version": "2.0.0",
+  "version": "0.0.0",
   "description": "An example on using a GraphQL endpoint to store and get data to/from DynamoDB",
   "scripts": {
     "setup": "claudia create --name gateway --region us-west-2 --api-module src/index --policies policies",
@@ -13,7 +13,7 @@
     "DynamoDB",
     "GraphQL"
   ],
-  "author": "Fancis Au-Yeung @aidanbon",
+  "author": "one19 <maelstroswim@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git@github.com:shitty-agency/gateway.git"
