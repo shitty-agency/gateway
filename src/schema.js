@@ -9,7 +9,6 @@ const schema = buildSchema(`
   type User {
     id: ID!
     email: String!
-    password: String!
     available: Int!
     targetIDs: [String]!
     token: String
