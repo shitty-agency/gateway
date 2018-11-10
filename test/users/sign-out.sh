@@ -1,6 +1,6 @@
 #
-# add-user.sh
-# Add 2 users
+# sign-out.sh
+# sign out any user
 #
 if [ ! -n "$API_ID" ]; then
     echo "Missing API_ID."
@@ -14,3 +14,5 @@ curl -H 'Content-Type: application/graphql' -X POST \
             id
         }
     }'
+
+echo

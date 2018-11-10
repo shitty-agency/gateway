@@ -11,14 +11,13 @@ const schema = buildSchema(`
 
   type Query {
     checkToken(token: String!): User
-    getUser(id: ID!): User
   }
 
   type Mutation {
     createUser(email: String!, password: String!): User
     signIn(email: String!, password: String!): User
-    deleteUser(id: ID!): User
-    signOut(id: ID!): User
+    deleteUser: User
+    signOut: User
   }
 `);
 

@@ -7,9 +7,15 @@ const ApiBuilder = require('claudia-api-builder');
 const Graphql = require('graphql');
 
 const schema = require('./schema');
-const { createUser, getUser, deleteUser } = require('./users');
+const {
+  createUser,
+  deleteUser,
+  checkToken,
+  signOut,
+  signIn,
+} = require('./users');
 
-const root = { createUser, getUser, deleteUser };
+const root = { createUser, deleteUser, signIn, signOut, checkToken };
 
 const api = new ApiBuilder();
 

@@ -10,7 +10,7 @@ fi
 curl -H 'Content-Type: application/graphql' -X POST \
   'https://'${API_ID}'.execute-api.us-west-2.amazonaws.com/latest/graphql' \
   -d 'mutation {
-        createUser (email: "binglebong@example.com", password: "Mary Lamb") {
+        createUser (email: "stringlestrongle@example.com", password: "Mary Lamb") {
             id
             email
             token

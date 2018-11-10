@@ -14,7 +14,7 @@ Object.defineProperties(User.prototype, {
         keyType: 'HASH',
         defaultProvider: v4,
       },
-      email: { type: 'String', keyType: 'HASH' },
+      email: { type: 'String' },
       password: { type: 'String' },
       targetIDs: {
         type: 'Set',
