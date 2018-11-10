@@ -3,11 +3,11 @@ const jwt = require('jsonwebtoken');
 
 const { JWT_SECRET } = process.env;
 
-exports.hashPassword = (password, hashRounds) =>
+exports.hashPassword = (password, hashRounds = 9) =>
   bcrypt.hash(password, hashRounds);
 
 exports.verifyPassword = (password, hash) => bcrypt.compare(password, hash);
 
-exports.createToken = email => jwt.sign({ email }, JWT_SECRET, '28d');
+exports.createToken = id => jwt.sign({ id }, JWT_SECRET, { expiresIn: '28d' });
 
 exports.verifyToken = (token, opts = {}) => jwt.verify(token, JWT_SECRET, opts);
