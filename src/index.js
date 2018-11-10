@@ -7,7 +7,9 @@ const ApiBuilder = require('claudia-api-builder');
 const Graphql = require('graphql');
 
 const schema = require('./schema');
-const users = require('./users');
+const { createUser, getUser, deleteUser } = require('./users');
+
+const root = { createUser, getUser, deleteUser };
 
 const api = new ApiBuilder();
 
@@ -18,7 +20,7 @@ api.post('/graphql', request => {
 
   // users is root for now, all the named methods are used in queries/mutations
   // in the future, users will need to be extended with other models
-  return Graphql.graphql(schema, request.body, users);
+  return Graphql.graphql(schema, request.body, root);
 });
 
 module.exports = api;
