@@ -8,19 +8,11 @@ if [ ! -n "$API_ID" ]; then
 fi
 
 curl -H 'Content-Type: application/graphql' -X POST \
-  'https://'${API_ID}'.execute-api.us-east-1.amazonaws.com/latest/graphql' \
+  'https://'${API_ID}'.execute-api.us-west-2.amazonaws.com/latest/graphql' \
   -d 'mutation {
-        createUser (email: "4@example.com", password: "Mary Lamb") {
-            id email password
+        createUser (email: "binglebong@example.com", password: "Mary Lamb") {
+            id email token
         }
     }'
 
 echo
-
-curl -H 'Content-Type: application/graphql' -X POST \
-  'https://'${API_ID}'.execute-api.us-east-1.amazonaws.com/latest/graphql' \
-  -d 'mutation {
-        createUser (email: "2@example.com", password: "John Doe") {
-            id email password
-        }
-    }'

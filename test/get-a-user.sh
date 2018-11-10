@@ -7,10 +7,9 @@ if [ ! -n "$API_ID" ]; then
 fi
 
 curl -H 'Content-Type: application/graphql' -X POST \
-  'https://'${API_ID}'.execute-api.us-east-1.amazonaws.com/latest/graphql' \
+  'https://'${API_ID}'.execute-api.us-west-2.amazonaws.com/latest/graphql' \
   -d '{
-  user (email:"4") {
-     email
-     password
+  getUser (id: "3c8e49eb-e13f-411f-b7b4-1d10072aad8e") {
+     id
   }
 }'
