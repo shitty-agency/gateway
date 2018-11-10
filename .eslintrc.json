@@ -1,0 +1,6 @@
+{
+  "extends": "@brightsole/lint-front",
+  "rules": {
+    "func-names": "off"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "gateway",
+  "version": "2.0.0",
+  "description": "An example on using a GraphQL endpoint to store and get data to/from DynamoDB",
+  "scripts": {
+    "create": "claudia create --name claudia-graphql-example --region us-east-1 --api-module src/index --policies policies",
+    "deploy": "claudia update",
+    "lint": "eslint . --fix"
+  },
+  "keywords": [
+    "claudia",
+    "aws-lambda",
+    "DynamoDB",
+    "GraphQL"
+  ],
+  "author": "Fancis Au-Yeung @aidanbon",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudiajs/example-projects.git"
+  },
+  "dependencies": {
+    "@aws/dynamodb-data-mapper": "^0.7.3",
+    "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
+    "aws-sdk": "^2.7.27",
+    "bcryptjs": "^2.4.3",
+    "claudia-api-builder": "^4",
+    "graphql": "14.0.2",
+    "jsonwebtoken": "^8.3.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@brightsole/eslint-config-lint-front": "^0.0.5",
+    "claudia": "^5.1.2",
+    "eslint": "^5.8.0"
+  }
+}
