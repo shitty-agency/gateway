@@ -18,10 +18,14 @@
     "type": "git",
     "url": "git@github.com:shitty-agency/gateway.git"
   },
+  "files": [
+    "src"
+  ],
   "license": "ISC",
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
     "@aws/dynamodb-data-mapper-annotations": "^0.7.3",
+    "@brightsole/eslint-config-lint-node": "^0.0.2",
     "aws-sdk": "^2.353.0",
     "bcryptjs": "^2.4.3",
     "claudia-api-builder": "^4",
@@ -30,8 +34,9 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "@brightsole/eslint-config-lint-front": "^0.0.5",
+    "babel-plugin-decorator-metadata": "^0.3.0",
     "claudia": "^5.1.2",
-    "eslint": "^5.9.0"
+    "eslint": "^5.9.0",
+    "husky": "^0.14.3"
   }
 }
