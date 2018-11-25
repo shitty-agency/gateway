@@ -2,6 +2,8 @@
   "extends": "@brightsole/lint-node",
   "rules": {
     "func-names": "off",
-    "no-console": "off"
+    "no-console": "off",
+    "no-await-in-loop": "off",
+    "no-restricted-syntax": "off"
   }
 }
