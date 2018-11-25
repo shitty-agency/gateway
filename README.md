@@ -41,7 +41,6 @@ aws dynamodb create-table --table-name users \
 <br />
 
 ### Users:
-2. Fix getUser not functioning for `{email}` field querying (probably switch it to a query/filter)
 3. Investigate how to pass token through header context
 4. Put deleteUser behind `token-powered context wall™`
 5. Add update method behind `token-powered context wall™`
