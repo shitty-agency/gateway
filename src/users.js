@@ -1,5 +1,6 @@
 const DynamoDB = require('aws-sdk/clients/dynamodb');
 const { DataMapper } = require('@aws/dynamodb-data-mapper');
+const { getFirst } = require('./utils');
 const User = require('./models/user');
 
 const {
@@ -17,25 +18,16 @@ const mapper = new DataMapper({
  * Get a single user by a direct field match
  * can match either by ID or by EMAIL
  *
+ * TODO: replace with `query` and a secondary index when datamapper
+ * supports it fully.
+ *
  * @async
  * @param {Object} user - A new user
  * @param {String} user.email - A unique email
  * @param {String} user.id - A user id
  * @returns {Object} user - a previously created user
  */
-const getUser = async query => {
-  const params = Object.assign(new User(), query);
-
-  let user = null;
-
-  try {
-    user = await mapper.get(params);
-  } catch (e) {
-    console.log('unable to find user');
-  }
-
-  return user;
-};
+const getUser = async query => getFirst(mapper.scan(User, query));
 
 /**
  * Lets a user sign in with their email & password
@@ -48,11 +40,9 @@ const getUser = async query => {
  */
 const signIn = async ({ email, password }) => {
   const user = await getUser({ email });
-  console.log('user', user);
   if (!user) throw new Error('invalid email or password');
 
   const correctPassword = await verifyPassword(password, user.password);
-  console.log('password', correctPassword);
   if (!correctPassword) throw new Error('invalid email or password');
 
   const token = createToken(user.id);
