@@ -5,7 +5,6 @@
     "region": "us-west-2"
   },
   "api": {
-    "id": "6mlamtstzb",
-    "module": "src/index"
+    "id": "6mlamtstzb"
   }
 }

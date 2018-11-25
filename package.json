@@ -22,6 +22,7 @@
   "files": [
     "src"
   ],
+  "main": "src/index.js",
   "license": "ISC",
   "dependencies": {
     "@aws/dynamodb-data-mapper": "^0.7.3",
@@ -29,7 +30,7 @@
     "@brightsole/eslint-config-lint-node": "^0.0.2",
     "aws-sdk": "^2.353.0",
     "bcryptjs": "^2.4.3",
-    "claudia-api-builder": "^4",
+    "claudia-api-builder": "^4.1.1",
     "graphql": "^14.0.2",
     "jsonwebtoken": "^8.3.0",
     "uuid": "^3.3.2"
